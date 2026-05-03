@@ -216,7 +216,11 @@ function startPractice(passageId) {
   document.getElementById('practice-title').textContent = pass.title;
   document.getElementById('practice-meta').textContent =
     `${pass.topic} • Band ${pass.band} • ${pass.questions.length} câu hỏi`;
-  document.getElementById('passage-text').innerHTML = pass.text;
+  const formattedText = pass.text
+    .split('\n\n')
+    .map(p => `<p>${p}</p>`)
+    .join('');
+  document.getElementById('passage-text').innerHTML = formattedText;
 
   // Render questions
   const qEl = document.getElementById('questions-panel');
