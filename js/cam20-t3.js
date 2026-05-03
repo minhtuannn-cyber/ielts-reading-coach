@@ -85,6 +85,60 @@ Sales increased in the early 1940s, when World War II gave a boost to the frozen
   ]
 },
 
+// ══════════════════════════════════════════════════════════════════════════
+// TEST 3 — PASSAGE 3: Robots and us
+// ══════════════════════════════════════════════════════════════════════════
+{
+  id: 'cam20-t3-p3',
+  title: 'Robots and us',
+  topic: 'Technology & Ethics',
+  band: '7.0 – 8.0',
+  difficulty: 'Advanced',
+  source: '📗 Cambridge IELTS 20 — Test 3, Passage 3',
+  wordCount: 820,
+  estimatedTime: 20,
+  text: `<strong>Three leaders in their fields answer questions about our relationships with robots.</strong>
+
+When asked 'Should robots be used to colonise other planets?', cosmology Professor <strong>Martin Rees</strong> said he believed the solar system would be mapped by robotic craft by the end of the century. He maintains that colonised planets 'should be preserved with a status analogous to Antarctica here on Earth.'
+
+Engineering Professor <strong>Daniel Wolpert</strong> replied: 'I do not see a pressing need to colonise other planets unless we can bring resources back to Earth. Using robots to gather resources nearer to home would seem to be a better use of our robotic tools.'
+
+Anthropology Professor <strong>Kathleen Richardson</strong> said the idea of 'colonisation' of other planets seemed morally dubious: 'I think whether we do something on Earth or on Mars we should always do it in the spirit of a genuine interest in the Other.'
+
+In response to 'How soon will machine intelligence outstrip human intelligence?', Rees mentions robots that beat humans at chess, but says: 'Robots are still limited in their ability to sense their environment. Later this century, their more advanced successors may relate to their surroundings as adeptly as we do. Moral questions then arise. Should we feel guilty about exploiting sophisticated robots? Should we fret if they are underemployed, frustrated, or bored?'
+
+Wolpert responded: 'In a limited sense it already has. Machines can navigate, remember and search with ability that far outstrips humans. However, there is no machine that can identify visual objects or speech with the reliability of humans. Expecting a machine close to the creative intelligence of a human within the next 50 years would be highly ambitious.'
+
+Richardson believes our fear of machines stems from humans' tendency to personify inanimate objects: we create machines based on representations of ourselves, imagine that machines think as we do, and therefore see them as an autonomous threat. 'One of the consequences of thinking that the problem lies with machines is that we tend to imagine they are greater and more powerful than they really are.'
+
+On 'Should we be scared by advances in artificial intelligence?', Rees replied: 'Those who should be worried are the futurologists who believe in the singularity. And another worry is that computer networks could behave like a single brain with a mind of its own. I think we should ensure that robots remain as no more than idiot savants lacking the capacity to outwit us.'
+
+Wolpert said we have already seen the damaging effects of artificial intelligence in computer viruses. 'But the real intelligence is the malicious designer. The benefits of computers outweigh the damage that computer viruses cause. Similarly, while there may be misuses of robotics, the benefits are likely to outweigh these negative aspects.'
+
+Richardson responded: 'We need to ask why fears of artificial intelligence persist; none have in fact risen up and challenged human supremacy. Not all fear robots; many people welcome machine intelligence.'
+
+On 'What can science fiction tell us about robotics?', Rees replied: 'I sometimes advise students that it is better to read first-rate science fiction than second-rate science \u2014 more stimulating, and perhaps no more likely to be wrong.'
+
+Wolpert commented: 'Science fiction has often been remarkable at predicting the future. Almost no science fiction envisages a future without robots.'
+
+Richardson pointed out that people tend to think there is reality on one hand and fiction on the other. She explained that scientists and technologists made this separation because they wanted to carve out the sphere of their professional authority.`,
+  questions: [
+    { id: 1, type: 'mc', question: 'Q27: For our own safety, humans will need to restrict the abilities of robots. Who said this?', options: ['A. Martin Rees', 'B. Daniel Wolpert', 'C. Kathleen Richardson'], answer: 'A', hints: ['Ai muon gioi han kha nang robot?', 'Tim "robots remain as no more than idiot savants"', 'Rees muon gioi han de an toan?'], explanation: 'A \u2014 Rees: "we should ensure that robots remain as no more than idiot savants lacking the capacity to outwit us".' },
+    { id: 2, type: 'mc', question: 'Q28: The risk of robots harming us is less serious than humans believe. Who said this?', options: ['A. Martin Rees', 'B. Daniel Wolpert', 'C. Kathleen Richardson'], answer: 'C', hints: ['Ai noi rui ro it nghiem trong hon chung ta nghi?', 'Tim "none have in fact risen up and challenged"', 'Richardson nghi robot khong phai moi de doa?'], explanation: 'C \u2014 Richardson: "none have in fact risen up and challenged human supremacy".' },
+    { id: 3, type: 'mc', question: 'Q29: It will take many decades for robot intelligence to be as imaginative as human intelligence. Who said this?', options: ['A. Martin Rees', 'B. Daniel Wolpert', 'C. Kathleen Richardson'], answer: 'B', hints: ['Ai noi can nhieu thap ky?', 'Tim "within the next 50 years would be highly ambitious"', 'Wolpert noi gi ve tri tue sang tao?'], explanation: 'B \u2014 Wolpert: "Expecting a machine close to the creative intelligence of a human within the next 50 years would be highly ambitious".' },
+    { id: 4, type: 'mc', question: 'Q30: We may have to start considering whether we are treating robots fairly. Who said this?', options: ['A. Martin Rees', 'B. Daniel Wolpert', 'C. Kathleen Richardson'], answer: 'A', hints: ['Ai dat cau hoi ve dao duc voi robot?', 'Tim "feel guilty about exploiting... underemployed, frustrated"', 'Rees lo ve cong bang cho robot?'], explanation: 'A \u2014 Rees: "Should we feel guilty about exploiting sophisticated robots? Should we fret if they are underemployed, frustrated, or bored?"' },
+    { id: 5, type: 'mc', question: 'Q31: Robots are probably of more help to us on Earth than in space. Who said this?', options: ['A. Martin Rees', 'B. Daniel Wolpert', 'C. Kathleen Richardson'], answer: 'B', hints: ['Ai noi robot huu ich hon o Trai Dat?', 'Tim "Using robots to gather resources nearer to home"', 'Wolpert thich robot o gan hon?'], explanation: 'B \u2014 Wolpert: "Using robots to gather resources nearer to home would seem to be a better use of our robotic tools".' },
+    { id: 6, type: 'mc', question: 'Q32: The ideas in high-quality science fiction may be just as accurate as those in mediocre science. Who said this?', options: ['A. Martin Rees', 'B. Daniel Wolpert', 'C. Kathleen Richardson'], answer: 'A', hints: ['Ai so sanh science fiction voi science?', 'Tim "first-rate science fiction than second-rate science"', 'Rees khuyen doc gi?'], explanation: 'A \u2014 Rees: "better to read first-rate science fiction than second-rate science \u2014 more stimulating, and perhaps no more likely to be wrong".' },
+    { id: 7, type: 'mc', question: 'Q33: There are those who look forward to robots developing greater intelligence. Who said this?', options: ['A. Martin Rees', 'B. Daniel Wolpert', 'C. Kathleen Richardson'], answer: 'C', hints: ['Ai noi co nguoi mong doi robot thong minh hon?', 'Tim "many people welcome machine intelligence"', 'Richardson noi gi?'], explanation: 'C \u2014 Richardson: "Not all fear robots; many people welcome machine intelligence".' },
+    { id: 8, type: 'mc', question: 'Q34: Richardson and Rees express similar views regarding the ethical aspect of ___', options: ['A. robots to explore outer space', 'B. advances in machine intelligence so far', 'C. changes made to other planets for our benefit', 'D. the harm already done by AI'], answer: 'C', hints: ['Rees va Richardson dong y ve dieu gi?', 'Rees: bao ton nhu Nam Cuc. Richardson: tinh than tôn trọng.', 'Ca hai deu quan tam den dao duc khi thay doi hanh tinh?'], explanation: 'C \u2014 Both express ethical concerns about changes to other planets: Rees says preserve like Antarctica, Richardson says respect the Other.' },
+    { id: 9, type: 'mc', question: 'Q35: Rees and Wolpert share an opinion about the extent of ___', options: ['A. robots to explore outer space', 'B. advances in machine intelligence so far', 'C. changes to other planets', 'D. harm done by AI'], answer: 'B', hints: ['Rees va Wolpert dong y ve dieu gi?', 'Ca hai deu noi robot da dat thanh tuu nhung con han che.', 'Muc do tien bo cua AI?'], explanation: 'B \u2014 Both acknowledge advances (chess, navigation) but note limitations (sensing, visual recognition).' },
+    { id: 10, type: 'mc', question: 'Q36: Wolpert disagrees with Richardson on the question of ___', options: ['A. robots to explore space', 'B. advances in machine intelligence', 'C. changes to planets', 'D. the harm already done by AI'], answer: 'D', hints: ['Wolpert va Richardson bat dong ve gi?', 'Wolpert: computer viruses da gay hai. Richardson: khong co robot nao thach thuc.', 'Tac hai cua AI?'], explanation: 'D \u2014 Wolpert says AI has already caused damage (viruses). Richardson says robots have never been a threat.' },
+    { id: 11, type: 'mc', question: 'Q37: What point does Richardson make about fear of machines?', options: ['A. It has grown with the development of advanced robots.', 'B. It results from our inclination to attribute human characteristics to non-human entities.', 'C. It has origins in misunderstandings about inanimate objects.', 'D. It demonstrates a key difference between human and machine intelligence.'], answer: 'B', hints: ['Richardson giai thich noi so may moc the nao?', 'Tim "personify inanimate objects"', 'Gan dac diem con nguoi cho may moc?'], explanation: 'B \u2014 "stems from humans\' tendency to personify inanimate objects: we create machines based on representations of ourselves".' },
+    { id: 12, type: 'mc', question: 'Q38: What potential advance does Rees see as a cause for concern?', options: ['A. robots outnumbering people', 'B. robots having abilities humans do not', 'C. artificial intelligence developing independent thought', 'D. artificial intelligence taking over every aspect of life'], answer: 'C', hints: ['Rees lo ngai dieu gi?', 'Tim "a single brain with a mind of its own"', 'AI co tu duy doc lap?'], explanation: 'C \u2014 "computer networks could behave like a single brain with a mind of its own, and with goals contrary to human welfare".' },
+    { id: 13, type: 'mc', question: 'Q40: What is Richardson doing in her comment about reality and fantasy?', options: ['A. warning people not to confuse them', 'B. outlining how one has impacted the other', 'C. recommending a change of approach', 'D. explaining why scientists have a different perspective from others'], answer: 'D', hints: ['Richardson noi gi ve thuc te va tuong tuong?', 'Tim "scientists and technologists made this separation"', 'Vi sao nha khoa hoc tach biet 2 thu?'], explanation: 'D \u2014 "scientists and technologists made this separation because they wanted to carve out the sphere of their professional authority".' },
+  ]
+},
+
 ];
 
 PASSAGES.push(...CAM20_T3);
