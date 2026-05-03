@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IELTS Reading Coach — Luyện thi thông minh</title>
+  <meta name="description" content="Ứng dụng luyện thi IELTS Reading thông minh: theo dõi tiến độ, gợi ý AI, giải thích đáp án chi tiết.">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- ── Navigation ──────────────────────────────────────────────────────────── -->
+<nav class="nav">
+  <div class="nav-logo" onclick="navigate('dashboard')">📖 IELTS Reading Coach</div>
+  <div class="nav-links">
+    <button class="nav-btn" id="nav-dashboard" onclick="navigate('dashboard')">Tổng quan</button>
+    <button class="nav-btn" id="nav-select"    onclick="navigate('select')">Luyện tập</button>
+    <button class="nav-btn" id="nav-progress"  onclick="navigate('progress')">Tiến độ</button>
+  </div>
+</nav>
+
+<!-- ══════════════════════════════════════════════════════════════════════════ -->
+<!-- VIEW: DASHBOARD                                                           -->
+<!-- ══════════════════════════════════════════════════════════════════════════ -->
+<div class="view" id="view-dashboard">
+  <div class="container">
+    <div class="page-title">Xin chào! 👋</div>
+    <div class="page-sub">Hôm nay chúng ta luyện Reading tiếp nhé. Mục tiêu: Band 7.0+</div>
+
+    <button class="btn-start" onclick="navigate('select')">
+      ▶ Bắt đầu luyện tập
+    </button>
+
+    <!-- Stats -->
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-icon">🎯</div>
+        <div class="stat-value" id="stat-accuracy">—</div>
+        <div class="stat-label">Độ chính xác</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon">📝</div>
+        <div class="stat-value" id="stat-sessions">0</div>
+        <div class="stat-label">Buổi học</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon">✅</div>
+        <div class="stat-value" id="stat-questions">0</div>
+        <div class="stat-label">Câu đã làm</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon">🔥</div>
+        <div class="stat-value" id="stat-streak">0</div>
+        <div class="stat-label">Ngày liên tiếp</div>
+      </div>
+    </div>
+
+    <!-- Dashboard grid -->
+    <div class="dashboard-grid">
+      <!-- Skill breakdown -->
+      <div class="card">
+        <div class="card-title">Phân tích kỹ năng</div>
+        <div id="skill-bars"><p class="empty-state">Chưa có dữ liệu. Hãy làm bài đầu tiên!</p></div>
+      </div>
+      <!-- Recent sessions -->
+      <div class="card">
+        <div class="card-title">Bài học gần đây</div>
+        <div id="recent-list"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════════════════════════════ -->
+<!-- VIEW: SELECT PASSAGE                                                      -->
+<!-- ══════════════════════════════════════════════════════════════════════════ -->
+<div class="view" id="view-select">
+  <div class="container">
+    <div class="page-title">Chọn bài đọc</div>
+    <div class="page-sub">Mỗi bài gồm 6–7 câu hỏi kiểu IELTS thật. Có gợi ý 3 mức và giải thích đáp án chi tiết.</div>
+    <div class="passage-grid" id="passage-grid"></div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════════════════════════════ -->
+<!-- VIEW: PRACTICE                                                            -->
+<!-- ══════════════════════════════════════════════════════════════════════════ -->
+<div class="view" id="view-practice">
+
+  <!-- Sticky header -->
+  <div class="practice-header">
+    <div class="practice-info">
+      <div class="practice-header-title" id="practice-title"></div>
+      <div class="practice-header-meta" id="practice-meta"></div>
+    </div>
+
+    <div class="q-progress">
+      <div id="q-dots" class="q-dots"></div>
+      <span id="answered-count" style="white-space:nowrap">0/0 câu</span>
+    </div>
+
+    <div class="timer-display" id="timer-display">--:--</div>
+  </div>
+
+  <!-- Split layout -->
+  <div class="practice-body">
+    <!-- Left: passage -->
+    <div class="passage-panel">
+      <div id="passage-text"></div>
+    </div>
+
+    <!-- Right: questions -->
+    <div class="questions-panel" id="questions-panel"></div>
+  </div>
+
+  <!-- Bottom submit bar -->
+  <div class="submit-bar">
+    <span class="answered-label" id="answered-count">0 câu đã trả lời</span>
+    <button class="btn-primary" id="btn-submit">Nộp bài →</button>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════════════════════════════ -->
+<!-- VIEW: REVIEW                                                              -->
+<!-- ══════════════════════════════════════════════════════════════════════════ -->
+<div class="view" id="view-review">
+  <div class="container">
+
+    <!-- Hero score -->
+    <div class="review-hero">
+      <div id="review-note" style="display:none" class="note-badge"></div>
+      <div>
+        <span class="review-score-big" id="review-score-num">—</span>
+        <span class="review-score-pct" id="review-score-pct">—</span>
+      </div>
+      <div class="review-hero-title" id="review-title"></div>
+      <div class="review-hero-sub">Band ước tính: <strong id="review-band">—</strong></div>
+      <div class="review-stats">
+        <div class="review-stat">
+          <div class="review-stat-val" id="review-time">—</div>
+          <div class="review-stat-label">Thời gian</div>
+        </div>
+        <div class="review-stat">
+          <div class="review-stat-val" id="review-hints">—</div>
+          <div class="review-stat-label">Gợi ý</div>
+        </div>
+      </div>
+      <div class="review-message" id="review-message"></div>
+    </div>
+
+    <!-- Detailed results -->
+    <div class="card-title">Chi tiết từng câu</div>
+    <div id="review-list" class="review-list section-gap"></div>
+
+    <!-- Actions -->
+    <div class="review-actions">
+      <button class="btn-primary" onclick="navigate('select')">Chọn bài khác</button>
+      <button class="btn-secondary" onclick="navigate('dashboard')">Về tổng quan</button>
+      <button class="btn-secondary" onclick="retryPassage()">Làm lại bài này</button>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════════════════════════════ -->
+<!-- VIEW: PROGRESS                                                            -->
+<!-- ══════════════════════════════════════════════════════════════════════════ -->
+<div class="view" id="view-progress">
+  <div class="container">
+    <div class="page-title">Phân tích tiến độ</div>
+    <div class="page-sub">Theo dõi điểm mạnh và điểm yếu của bạn theo từng dạng câu hỏi.</div>
+
+    <div class="progress-stats stats-grid">
+      <div class="stat-card">
+        <div class="stat-icon">📅</div>
+        <div class="stat-value" id="prog-sessions">0</div>
+        <div class="stat-label">Buổi học</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon">🎯</div>
+        <div class="stat-value" id="prog-accuracy">—</div>
+        <div class="stat-label">Độ chính xác</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon">🔥</div>
+        <div class="stat-value" id="prog-streak">0</div>
+        <div class="stat-label">Streak</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon">✅</div>
+        <div class="stat-value" id="prog-questions">0</div>
+        <div class="stat-label">Câu đã làm</div>
+      </div>
+    </div>
+
+    <div class="card section-gap">
+      <div class="card-title">Hiệu suất theo dạng câu hỏi</div>
+      <div id="skill-chart"></div>
+    </div>
+
+    <div class="card section-gap">
+      <div class="card-title">Lịch sử học tập</div>
+      <div id="session-history"></div>
+    </div>
+
+    <div class="danger-zone">
+      <button class="btn-danger" onclick="resetProgress()">🗑 Xóa toàn bộ tiến độ</button>
+    </div>
+  </div>
+</div>
+
+<script src="js/data.js"></script>
+<script src="js/app.js"></script>
+<script>
+  // Retry current passage
+  function retryPassage() {
+    if (state.passage) navigate('practice', state.passage.id);
+    else navigate('select');
+  }
+
+  // Highlight active nav button
+  const _origNavigate = navigate;
+  navigate = function(view, data) {
+    document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+    const nb = document.getElementById('nav-' + view);
+    if (nb) nb.classList.add('active');
+    _origNavigate(view, data);
+  };
+</script>
+</body>
+</html>
